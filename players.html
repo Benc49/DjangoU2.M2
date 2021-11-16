@@ -1,0 +1,30 @@
+{% extends "home.html"%} {% block content %}
+
+<div class="row">
+  <div class="col-md">
+    <div class="card card-body">
+      <h5>Products</h5>
+    </div>
+    <div class="card card-body">
+      <table class="table">
+        <tr>
+          <th>Player</th>
+          <th>Position</th>
+          <th>Sport</th>
+        </tr>
+
+        {% for i in players %}
+        <tr>
+          <td>{{i.Name}}</td>
+          <td>{{i.Position}}</td>
+          <td>{{i.Sport}}</td>
+          <td><a href="{% url 'update' i.id %}">Update</a></td>
+          <td><a href="{% url 'delete' i.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
